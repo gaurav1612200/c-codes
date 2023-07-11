@@ -1,0 +1,46 @@
+int findK(int a[MAX][MAX],int n,int m,int k){
+    
+int rowStart = 0 ;
+ 		int colStart = 0 ;
+ 		int rowEnd = n - 1;
+ 		int colEnd = m - 1;
+        
+        int i = 0 ;
+        int total = n * m ;
+        int count = 0 ;
+        
+ 		while( i  < total ){
+ 		        
+ 		        for(int j = colStart ; j <= colEnd && i < total ; j++){
+ 		         //   cout << a[rowStart][j];
+ 		         count++;
+ 		         if(count == k)
+ 		         return a[rowStart][j];
+ 		            i++;
+ 		        }
+ 		        rowStart++;
+ 		     //   colStart++;
+ 		        for(int  j = rowStart ; j <= rowEnd && i < total ; j++){
+ 		             count++;
+ 		            if(count == k)
+ 		            return a[j][colEnd];
+ 		              i++;
+ 		        }
+ 		        colEnd--;
+ 		        
+ 		        for(int j = colEnd ; j >= colStart && i < total ;j--){
+ 		             count++;
+ 		            if(count == k)
+ 		            return a[rowEnd][j];
+ 		              i++;
+ 		        }
+ 		        rowEnd--;
+ 		        
+ 		        for(int j = rowEnd ; j >= rowStart && i < total ; j--){
+ 		             count++;
+ 		            if(count == k)
+ 		            return  a[j][colStart];
+ 		              i++;
+ 		        }
+ 		        colStart++;
+}
