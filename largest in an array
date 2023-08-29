@@ -1,0 +1,14 @@
+
+class Solution
+{
+public:
+    int largest(vector<int> &arr, int n)
+    {
+        if(n==0){
+            return n;
+        }
+        int l =max(arr[n-1],largest(arr,n-1));
+        return l;
+        
+    }
+};
