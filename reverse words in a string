@@ -1,0 +1,46 @@
+
+class Solution
+{
+    public:
+    //Function to reverse words in a given string.
+    string reverseWords(string S) 
+    { 
+        vector<string>word_arr;
+        string word;
+        for(auto i:S){
+            if(i=='.'){
+                word_arr.push_back(word);
+                word="";
+            }else{
+                word =word +i;
+            }
+        }
+        word_arr.push_back(word);
+         reverse(word_arr.begin(), word_arr.end());
+    string rev = "";
+    int n = word_arr.size();
+    for (int i = 0; i < n; i++)
+    {
+        if (i < n - 1)
+            rev += word_arr[i] + ".";
+        else
+            rev += word_arr[i];
+    }
+    return rev;
+    } 
+};
+
+//{ Driver Code Starts.
+int main() 
+{
+    int t;
+    cin >> t;
+    while (t--) 
+    {
+        string s;
+        cin >> s;
+        Solution obj;
+        cout<<obj.reverseWords(s)<<endl;
+    }
+}
+// } Driver Code Ends
